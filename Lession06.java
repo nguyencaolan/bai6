@@ -45,6 +45,17 @@ public class Lession06 {
 			
 		}
 		
+		public ArrayList Get_Sole() {
+			
+			ArrayList arrSoLe = new ArrayList();
+
+			for (int i = 0; i < number; i++) {   // chỗ này báo lỗi ở "number"
+				if (i % 2 != 0) {
+					arrSoLe.add(i);
+				}
+			}
+			return arrSoLe;
+		
 		// GetMyNumber() - Trả ra những giá trị là số nguyên tố và không bị trùng trong mảng Numbers
 		
 		public ArrayList<Integer> RemoveDupplicateNumber()

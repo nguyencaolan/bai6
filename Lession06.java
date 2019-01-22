@@ -81,20 +81,18 @@ public class Lession06 {
 		
 	}
 	//GetTotal() - Trả ra tổng tất cả các giá trị số nguyên tố chẵn vừa tìm được.
-			public ArrayList Get_Sochan() {
+			public ArrayList<Integer> Get_Sochan(int numbers) {
+				//int numbers = 0;
 		
-				ArrayList lstSochan = new ArrayList();
+					ArrayList<Integer> arrOrderNumber = new ArrayList<Integer>();
 		
-				for(int i=0; i< numbers.length; i++){
-					if(i%2==0)
-					{
-				lstSochan.add(i);
+				
+					for (int i = 0; i < numbers; i++) {
+					if (i % 2 == 0) {
+						arrOrderNumber.add(i);
+						}
 					}
-				}
-		   
-				return lstSochan;
-			}
-			
+					return arrOrderNumber;
 }
 	
 

@@ -12,88 +12,52 @@ import javax.xml.transform.Result;
  * - GetTotal() - Trả ra tổng tất cả các giá trị số nguyên tố chẵn vừa tìm được.
  * - GetLuckyNumber() - Tìm xem có số nguyên tố nào trong mảng Numbers có giá trị bằng tổng 02 số nt liền trước không? 
  */
-public class Lession06 {
-	
-	
+public class Lesson061 {
+	public class MyNumber {
+	    private int[] _numbers;
 
-	class MyNumber{
-		
-		public int[] Numbers;
-		int numbers;
-		int n, i = 0;
+	    public MyNumber(int[] numbers) {
+	        _numbers = numbers;
+	    }
+
+	    //- In ra những giá trị là số nguyên tố
+	    public void getMyNumber() {
+	        for (int i = 0; i < _numbers.length; i++) {
+	            if (kiemtraNguyento(_numbers[i])) {
+	                System.out.println(_numbers[i]);
+	            }
+	        }
+	    }
+
+	    //Trả ra tổng tất cả các giá trị số nguyên tố chẵn vừa tìm được.
+	    public int getTotal() {
+	        int total = 0;
+	        for (int i = 0; i < _numbers.length; i++) {
+	            if (kiemtraNguyento(_numbers[i]) && kiemtraSochan(_numbers[i])) {
+	                total = total + _numbers[i];
+	            }
+	        }
+			return total;
+	    }
+
+	    public boolean kiemtraNguyento(int n) {
+	        if (n < 2)
+	            return false;
 	
-		
-		public MyNumber (int[] numbers) 
-		{
-			this. Numbers = Numbers;
-		}
-		
-		public boolean kiemTraNguyenTo() 
-		{
-			boolean result = true;
-			
-			for ( int i =2 ; i<numbers; i++)
-			{
-				
-				if (numbers % i == 0) 
-				{
-					result = false;
-					break;
-					
-				}
-			
-			}
-			
-			return result;
-			
-		}
-		
-		public ArrayList xoaPhanTuTrung() 
-		
-		{
-			ArrayList MyNumber = new ArrayList();
-			ArrayList arrTemp = new ArrayList<>();
-			
-			boolean snt;
-			snt = kiemTraNguyenTo();
-			for ( i = 0; i < numbers; i ++) 
-				
-			{
-				for (i = 0; i < MyNumber.size(); i++) 
-				{
-					//thêm các phần tử của MyNumber vào arrTemp
-				    // nếu trong arrTemp đã tồn tại phần tử giống trong MyNumber
-				    // thì không thêm vào, ngược lại thêm bình thường
-					
-						if (!arrTemp.contains(MyNumber.get(i))) 
-						{
-							arrTemp.add(MyNumber.get(i));
-							
-						}
-					
-				}
-				MyNumber.clear();
-			}
-			MyNumber.addAll(arrTemp);
-			return MyNumber;
-			
-		}
-		
+	        for (int i = 2; i < Math.sqrt(n); i++) {
+	            if (n % i == 0) {
+	                return false;
+	            }
+	        }
+
+	        return true;
+	    }
+
+	    public boolean kiemtraSochan(int n) {
+	        return n % 2 == 0 ? true : false;
+	    }
 	}
-	//GetTotal() - Trả ra tổng tất cả các giá trị số nguyên tố chẵn vừa tìm được.
-			public ArrayList<Integer> Get_Sochan(int numbers) {
-				//int numbers = 0;
-		
-					ArrayList<Integer> arrOrderNumber = new ArrayList<Integer>();
-		
-				
-					for (int i = 0; i < numbers; i++) {
-					if (i % 2 == 0) {
-						arrOrderNumber.add(i);
-						}
-					}
-					return arrOrderNumber;
+
 }
-	
 
 
